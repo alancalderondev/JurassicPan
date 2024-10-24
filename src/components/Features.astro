@@ -1,0 +1,41 @@
+---
+import { AnimatedSection } from './AnimatedSection';
+import { AnimatedFeatureCard } from './AnimatedFeatureCard';
+
+const features = [
+  {
+    title: "Fresco todos los dias",
+    description: "Todos nuestros productos se hornean frescos todas las mañanas.",
+    icon: "🌅"
+  },
+  {
+    title: "Ingredientes de calidad",
+    description: "Utilizamos sólo los mejores ingredientes disponibles.",
+    icon: "🌾"
+  },
+  {
+    title: "Calidad en nuestro servicio",
+    description: "Nuestros clientes nos dan una opinión positiva cada vez que vienen a visitarnos.",
+    icon: "🦖"
+  },
+  {
+    title: "Pedidos",
+    description: "Pedidos eficientes y de la mejor calidad especiales para ti",
+    icon: "🎂"
+  }
+];
+---
+
+<section class="bg-secondary/10 py-20 px-4">
+  <div class="max-w-7xl mx-auto">
+    <AnimatedSection client:visible className="text-center mb-16">
+      <h2 class="font-display text-4xl mb-4">🦕 ¿Por qué comprar con nosotros? 🦕</h2>
+    </AnimatedSection>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {features.map((feature, index) => (
+        <AnimatedFeatureCard client:visible feature={feature} index={index} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+---
+import CarouselMap  from '../components/CarouselMap.jsx';
+
+const reviews = [
+  {
+    name: "Ariel Martinez",
+    review: "Buena ubicacion y hay pan de temporada, son tan ricos que quiero comer diario!!",
+    image: "https://scontent.fmex23-1.fna.fbcdn.net/v/t39.30808-6/351160130_3338103456501930_5568334464244966501_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=MJ7rAguW5TMQ7kNvgEu0yG0&_nc_zt=23&_nc_ht=scontent.fmex23-1.fna&_nc_gid=AmfGVybQMIpLAPuDs8RKzqT&oh=00_AYAT_iZzF0z0BzuY-6JRgiTRjL8VPGzuZeoleIGZnDw93A&oe=671DF183",
+  },
+  {
+    name: "Alan Calderon",
+    review: "Me gusta el Pan!",
+    image: "https://scontent.fmex31-1.fna.fbcdn.net/v/t1.6435-9/101657746_2686115151671681_3507313127622443008_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=AVjKi2QyD20Q7kNvgF_uaUy&_nc_zt=23&_nc_ht=scontent.fmex31-1.fna&_nc_gid=AVmRzhLBvRw1eTgvdhKSY6I&oh=00_AYD9BO63JhBMMdAk_S4ummSuiVlajIxVbwv1dhWRfP-oRA&oe=673F659B",
+  },
+  {
+    name: "Angel de Jesus",
+    review: "Comete un pan,  Cometelo cometelo cometelo!!!",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3zF84MTNWkr5WsPrvX2aONui2Yp28q1im6g&s",
+  },
+  {
+    name: "Alejandra Vanessa Maldonado",
+    review: "Miau!",
+    image: "https://scontent.fmex27-1.fna.fbcdn.net/v/t39.30808-6/438098495_10220942690951734_3445714403802281142_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Qtnbw2n9afAQ7kNvgFFp1Rx&_nc_zt=23&_nc_ht=scontent.fmex27-1.fna&_nc_gid=Ab6Y7AeKoT-r68NEH7cNxaG&oh=00_AYAdfnXtgmlqYcR74qD9CuUZInt9sJunTJdjj1UGX2963A&oe=671DF5B7",
+  },
+  
+];
+---
+
+<section class="bg-gray-50 py-8">
+  <div class="container mx-auto px-4">
+    <!-- Mini mapa -->
+    <div class="mb-8 flex flex-col items-center mb-12">
+      <h2 class="text-3xl font-display font-bold text-bakery-primary text-center mb-6">🐱 Ven a visitarnos 🐱</h2>
+      <iframe
+        class="w-6/12 h-64 mt-4 rounded-lg shadow-lg"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15085.68850284064!2d-99.058655!3d19.314193!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fdfedbb27a01%3A0x0!2zMTnCsDE4JzUxLjEiTiA5OcKwMDMnMzEuMiJX!5e0!3m2!1sen!2smx!4v1632521234567!5m2!1sen!2smx"
+        loading="lazy"
+      ></iframe>
+      <p class="mt-4 text-gray-600 text-center">
+        Estamos ubicados en .......... y podras encontrarnos pasando la ....... en una carpa .... 
+      </p>
+    </div>
+
+    <!-- Reviews section -->
+    <div class="relative">
+      <div class="flex overflow-x-scroll snap-x snap-mandatory space-x-4 pb-4 justify-center">
+        {reviews.map((review) => (
+          <div class="snap-center flex-shrink-0 w-72 bg-bakery-secondary text-black p-4 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-110 mx-2">
+            <div class="flex items-center">
+              <img src={review.image} alt={review.name} class="w-12 h-12 rounded-full mr-3" />
+              <div>
+                <p class="font-semibold text-lg">{review.name}</p>
+                <p class="text-sm mt-1">{review.review}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="absolute top-1/2 -left-4 transform -translate-y-1/2">
+        <button id="prev" class="bg-bakery-primary text-white p-2 rounded-full shadow-lg">←</button>
+      </div>
+      <div class="absolute top-1/2 -right-4 transform -translate-y-1/2">
+        <button id="next" class="bg-bakery-primary text-white p-2 rounded-full shadow-lg">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<CarouselMap client:load />

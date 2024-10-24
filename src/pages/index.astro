@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel';
+import Specialties from '../components/Specialties.astro';
+import Visit from '../components/Visit.astro';
+---
+
+<Layout title="Jurassic Pan">
+  <main class="pt-16"> <!-- Added padding-top to account for fixed header -->
+    <Carousel client:load />
+    <Specialties />
+    
+    <Visit />
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --swiper-theme-color: #FF6B6B !important;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white !important;
+  }
+  
+  .swiper-pagination-bullet {
+    background: white !important;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import { AnimatedSection } from './AnimatedSection';
+
+const specialties = [
+  {
+    title: "Pan fresco y muy sabroso",
+    description: "Expedicion diaria para mejor frescura",
+    image: "https://losglobos.mx/img/header.png"
+  },
+  {
+    title: "Calidad, sabor y al mejor precio",
+    description: "solo con nosotros encontraras precios bajos y calidad excelente",
+    image: "https://elencuentrosv.com/aguilares/wp-content/uploads/2021/05/pan-lilian.jpg"
+  },
+  {
+    title: "Porque tu Familia es lo mas importante para nosotros",
+    description: "",
+    image: "https://media.istockphoto.com/id/1018114812/es/foto/americano-africano-ni%C3%B1o-se%C3%B1alando-con-el-dedo-en-el-pastel-a-padre-en-el-supermercado.jpg?s=612x612&w=0&k=20&c=0df4hBSQM4agEpLlNNaEl4gbFo5bNZNo6i57hntLJmY="
+  }
+];
+---
+
+<section class="py-20 px-4 max-w-7xl mx-auto">
+  <AnimatedSection client:visible className="text-center mb-16">
+    <h2 class="font-display text-4xl mb-4">Nuestras Especialidades</h2>
+    <p class="text-gray-600">Estos pequeños detalles son lo que nos hacen tu mejor opcion</p>
+  </AnimatedSection>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {specialties.map(specialty => (
+      <div class="group relative overflow-hidden rounded-lg shadow-lg transition-transform hover:-translate-y-2">
+        <img
+          src={specialty.image}
+          alt={specialty.title}
+          class="w-full h-64 object-cover"
+        />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div class="flex items-center justify-center h-full">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-display mb-2">{specialty.title}</h3>
+              <p>{specialty.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
